@@ -259,11 +259,17 @@ var load_sub = function() {
 };
 
 var update = function() {
-    standings = ['Freshman', 'Sophomore', 'Junior', 'Senior'];
-    for (var i = credits, j = 0; i > 0 && j < 4; i -= 30, j++) {
-        standing = standings[j];
-    }
     updateUnits();
+    if (credits < 30) {
+        standing = 'Freshman';
+    } else if (credits < 60) {
+        standing = 'Sophomore';
+    } else if (credits < 90) {
+        standing = 'Junior';
+    } else {
+        standing = 'Senior';
+    }
+    
     $("#standing").text(standing);
     $("#units").text(credits);
 
