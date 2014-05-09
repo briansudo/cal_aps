@@ -269,7 +269,7 @@ var update = function() {
     } else {
         standing = 'Senior';
     }
-    
+
     $("#standing").text(standing);
     $("#units").text(credits);
 
@@ -360,6 +360,16 @@ $(function() {
         college = $(this).attr('id');
         console.log("Changing college to " + college);
         buildTable();
+        $('.remove').click(function() {
+            console.log("Remove called");
+            var item = $(this).attr("id");
+
+            $(this).closest('tr').remove();
+            listed = _.without(listed, item);
+            console.log(item + " to be removed " + listed);
+            update();
+            load_sub();
+        });
     })
     $('#add').click(function() {
         if (subject && _.indexOf(listed, subject) < 0) {
@@ -386,6 +396,16 @@ $(function() {
             load_sub();
         });
         console.log("Add pushed " + subject);
+    });
+    $('.remove').click(function() {
+        console.log("Remove called");
+        var item = $(this).attr("id");
+
+        $(this).closest('tr').remove();
+        listed = _.without(listed, item);
+        console.log(item + " to be removed " + listed);
+        update();
+        load_sub();
     });
 });
 
