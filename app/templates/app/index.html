@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+    {% load bootstrap3 %}
+    {% bootstrap_messages %}
+    {% load staticfiles %}
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Calculate how many units you get and what requirements you fulfill from APs.">
+        <meta name="author" content="Brian Su">
+        <meta name="keywords" content="Cal, UC Berkeley, UC, AP, APs, Advanced Placement">
+
+        <title>Cal APs</title>
+
+        {% bootstrap_css %}
+        <link href="{% static "app/css/font-awesome.min.css" %}" rel="stylesheet">
+        <link href="{% static "app/css/styles.css" %}" rel="stylesheet">
+        <link href="{% static "app/css/dropdowns-enhancement.min.css" %}" rel="stylesheet">
+        
+    </head>
+    <body>
+        <nav class="navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               
+                <a class="navbar-brand" href="/">
+                    <span id="maintitle" class="color1">
+                        Cal
+                    </span>
+                    <span id="maintitle2" class="color2">
+                        APs
+                </span></a>
+            </div>
+        </div><!-- /.container-fluid -->
+        </nav>
+    <br>
+    <div class="container-fluid text-center">
+        <div class="row">
+        <button id="college-button" class="dropdown btn btn-primary">
+          <!-- Link or button to toggle dropdown -->
+            <span id="college">Letters and Science <span class="caret"></span></span>
+          <ul id="college-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 200px;">
+                <li role="presentation"><a id="ls" class="college-choice" role="menuitem" tabindex="-1" href="#">Letters and Science</a></li>
+                <li role="presentation"><a id="chem" class="college-choice" role="menuitem" tabindex="-1" href="#">Chemistry</a></li>
+                <li role="presentation"><a id="eng" class="college-choice" role="menuitem" tabindex="-1" href="#">Engineering</a></li>
+                <li role="presentation"><a id="haas" class="college-choice" role="menuitem" tabindex="-1" href="#">Haas</a></li>
+          </ul>
+        </button>
+        <button id="cat-button" class="dropdown btn btn-primary">
+          <!-- Link or button to toggle dropdown -->
+            <span id="cat">Category <span class="caret"></span></span>
+          <ul id="cat-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="max-width: 200px;">
+
+          </ul>
+        </button>
+        </span>
+        <button id="sub-button" class="dropdown btn btn-primary pull-center">
+          <!-- Link or button to toggle dropdown -->
+            <span id="sub">Select <span class="caret"></span></span>
+          <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 200px;">
+            
+            
+            
+          </ul>
+        </button>
+        <button id="score-button" class="dropdown btn btn-primary">
+          <!-- Link or button to toggle dropdown -->
+
+            <span id="score">5</span>
+          <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 0px;">
+                <li role="presentation"><a id="five" class="score-num" role="menuitem" tabindex="-1" href="#">5</a></li>
+                <li role="presentation"><a id="four" class="score-num" role="menuitem" tabindex="-1" href="#">4</a></li>
+                <li role="presentation"><a id="three" class="score-num" role="menuitem" tabindex="-1" href="#">3</a></li>
+
+          </ul>
+        </button>
+        <button id="add" class="btn btn-success">+</button>
+        </div>
+    <br>
+    </div>
+        <div class="container col-md-offset-3 col-md-6 text-center">
+    <div class="row">
+    <p>
+    <i>Only scores 3 or higher count. For detailed information, visit <a href="http://admission.universityofcalifornia.edu/counselors/exam-credit/ap-credits/index.html">here.</a></i>
+    </p>
+    </div>
+    </div>
+    <div class="container-fluid col-md-6 col-md-offset-3 text-center">
+        <h4>Units: <i><span id="units">0</span></i> Standing: <i><span id="standing">Freshman</span></i></h4>
+    </div>
+    <div class="container-fluid text-center">
+        <table class="table">
+            <thead >
+                <th style="text-align:center">AP</th>
+                <th style="text-align:center">Score</th>
+                <th style="text-align:center">Units</th>
+                <th style="text-align:center">Requirements Satisfied</th>
+                <th style="text-align:center">Remove</th>
+            </thead>
+            <tbody id="ap-table">
+
+            </tbody>
+
+        </table>
+
+    </div>
+    </div>
+
+
+</body>
+
+<script src="{% static "app/js/jquery-2.1.1.min.js" %}"></script>
+<script src="{% static "app/js/underscore-min.js" %}"></script>
+<script src="{% static "app/js/script.js" %}"></script>
+{% bootstrap_javascript %}
+
+</html>
