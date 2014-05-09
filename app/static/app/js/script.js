@@ -217,7 +217,41 @@ var reqs_haas = {
     "sp_lit": "Satisfies Foreign Language requirement.",
 };
 
-var college_dict = {'ls': reqs_ls, 'chem': reqs_chem, 'eng': reqs_eng, 'haas': reqs_haas};
+var reqs_cnr = {
+    "art_hist": "",
+    "music": "",
+    "std_art": "",
+    "lit": "3 satisfies Entry Level Writing. 4 satisfies 1st half of Reading and Comp. 5 satisfies 2nd half of Reading and Comp.",
+    "lang": "3 satisfies Entry Level Writing. 4+ satisfies 1st half Reading and Comp",
+    "comp_gov": "",
+    "euro": "",
+    "human": "",
+    "macro": "EEP, MT (3+), NS (3+), S&E: 4+ on both exams satisfies Economics 1.",
+    "micro": "EEP, MT (3+), NS (3+), S&E: 4+ on both exams satisfies Economics 1. Also satisfies EEP C1.",
+    "psych": "",
+    "gov": "",
+    "ush": "",
+    "world": "",
+    "ab": "All: 3+ Satisfies Math 1A and 16A.",
+    "bc": "All: 3+ Satisfies Math 1A and 16A. EEP, ES, FNR, GPB, MEB, MB: 5 satisfies Math 1B and 16B.",
+    "cs": "",
+    "stats": "CRS, FNR, GPB, MEB, MB, MT, NS, S&E: 3+ satisfies Stats 2.",
+    "bio": "ES, CRS, FNR, MEB: 4+ satisfies Biology 1A, 1B or 11",
+    "chem": "ES, CRS, FNR, GPB (3+), MEB, MB (3+), MT, NS: 4+ Satisfies Chem 1A.",
+    "env": "ES, CRS, FNR, MEB, S&E: 4+ satisfies ESPM 15 or ESPM C10.",
+    "phys_b": "GPB, MB: 3+ satisfies Physics 8A.",
+    "em": "",
+    "mech": "",
+    "ch": "EEP: Satisfies Foreign Language requirement.",
+    "fr": "EEP: Satisfies Foreign Language requirement.",
+    "ger": "EEP: Satisfies Foreign Language requirement.",
+    "jpn": "EEP: Satisfies Foreign Language requirement.",
+    "lat": "EEP: Satisfies Foreign Language requirement.",
+    "sp_lang": "EEP: Satisfies Foreign Language requirement.",
+    "sp_lit": "EEP: Satisfies Foreign Language requirement.",
+};
+
+var college_dict = {'ls': reqs_ls, 'chem': reqs_chem, 'eng': reqs_eng, 'haas': reqs_haas, 'cnr': reqs_cnr};
 var college = 'ls';
 var listed = [];
 var category = null;
