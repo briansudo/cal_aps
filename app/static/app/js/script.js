@@ -167,7 +167,7 @@ var reqs_ls = {
     "ab": "3+ satisfies Math 1A & 16A. Satisfies Quantitative Reasoning requirement.",
     "bc": "3 satisfies Math 1A & 16A. 4+ satisfies Math 1A and 1B, 16A and 16B. Satisfies Quantitative Reasoning requirement.",
     "cs": "",
-    "stats": "",
+    "stats": "Satisfies Quantitative Reasoning requirement.",
     "bio": "4+ satisfies Bio 1A/1AL and 1B",
     "chem": "4+ satisfies Chem 1A/1AL",
     "env": "",
