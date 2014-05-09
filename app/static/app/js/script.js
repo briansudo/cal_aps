@@ -283,9 +283,7 @@ var updateUnits = function() {
     var listed_length = listed.length;
     count = 0;
     for (var i = 0; i < listed_length; i++) {
-        if (_.indexOf(subjects["arts"], listed[i]) >= 0) {
-            arts = 8;
-        } else if (_.indexOf(subjects["eng"], listed[i]) >= 0) {
+        if (_.indexOf(subjects["eng"], listed[i]) >= 0) {
             eng = 8;
         } else if (listed[i] === 'ab' || listed[i] === 'bc') {
             calc += units[listed[i]];
