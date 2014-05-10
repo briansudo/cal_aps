@@ -251,29 +251,37 @@ var reqs_cnr = {
     "sp_lit": "EEP: Satisfies Foreign Language requirement.",
 };
 
+// Dictionary of colleges and their corresponding requirements
+// When we add IB, we should create a similar dictionary. Then, we just have another dictionary like:
+// var choose_dict = {'ap': college_dict, 'ib': college_ib_dict};
 var college_dict = {'ls': reqs_ls, 'chem': reqs_chem, 'eng': reqs_eng, 'haas': reqs_haas, 'cnr': reqs_cnr};
-var college = 'ls';
-var listed = [];
-var category = null;
-var subject = null;
-var score = 5;
-var credits = 0;
-var standing = 'Freshman';
-var li_beg = '<li><a id=';
-var li_mid = ' tabindex="-1" href="#" class="cat-element">'
-var li_mid_x = ' tabindex="-1" href="#" class="sub-element">'
-var li_end = '</a></li>';
-var li_header_beg = '<li role="presentation" class="dropdown-header">'
-var li_header_end = '</li>';
-var ul_header = '<ul class="dropdownz-menu col-md-4">';
-var ul_end = '</ul>'
 
+// Add and remove classes from this array. This prevents duplicates since
+// we just have to check if a class is in here before we populate the dropdowns.
+var listed = [];
+
+// ON INITIALIZATION
+var college  = 'ls';
+var category = null;
+var subject  = null;
+var score    = 5;
+var credits  = 0;
+var standing = 'Freshman';
+
+// CODE FOR LIST ELEMENT
+// var proper_li_ele = li_beg + SOME_ID + li_mid(_x) + dict[SOME_ID] + li_end;
+var li_beg   = '<li><a id   = ';
+var li_mid   = ' tabindex   = "-1" href = "#" class = "cat-element">'
+var li_mid_x = ' tabindex   = "-1" href = "#" class = "sub-element">'
+var li_end   = '</a></li>';
+
+// Populates the subjects dropdown
 var load_sub = function() {
     if (category) {
         $("#sub-button").removeClass("disabled");
         var sub_items = "";
-        var subs = subjects[category];
-        var sub_len = subjects[category].length;
+        var subs      = subjects[category];
+        var sub_len   = subjects[category].length;
         console.log(subs);
         for (var i = 0; i < sub_len; i++) {
             if ($.inArray(subs[i], listed) < 0) {
@@ -292,6 +300,7 @@ var load_sub = function() {
     };
 };
 
+// Updates the standing
 var update = function() {
     updateUnits();
     if (credits < 30) {
@@ -306,12 +315,12 @@ var update = function() {
 
     $("#standing").text(standing);
     $("#units").text(credits);
-
 };
 
+// Calculates how many units student has earned with selected classes
 var updateUnits = function() {
     arts = 0;
-    eng = 0;
+    eng  = 0;
     calc = 0;
     phys = 0;
     var listed_length = listed.length;
@@ -339,11 +348,13 @@ var updateUnits = function() {
     count += arts / 1.5 + eng / 1.5 + calc / 1.5 + phys / 1.5;
     count = parseFloat(count.toFixed(1));
     credits = count;
-    credits = parseFloat(credits.toFixed(1));
     console.log(count);
 };
 
+// Using listed, the array of classes added, build the table with college specific reqs.
+// Used when the college is changed.
 var buildTable = function() {
+    console.log("Build table called");
     $("#ap-table").html("");
     var listed_length = listed.length;
     for (var i = 0; i < listed_length; i++) {
@@ -353,24 +364,40 @@ var buildTable = function() {
         + '<td>' + units_add + '</td>'
         + '<td>' + college_dict[college][listed[i]] + '</td>'
         + '<td>' + '<a href="#" class="fa fa-times-circle remove" id="' + listed[i] + '"></a>' + '</td>';
-
         $("#ap-table").html($("#ap-table").html() + table_add);
     }
-    console.log("Build table called");	
+    addRemoveHandler();	
 };
 
-$(function() {
-    category = null;
+// Removes an item from the table and from listed
+var addRemoveHandler = function() {
+    $('.remove').click(function() {
+        console.log("Remove called");
+        var item = $(this).attr("id");
+        $(this).closest('tr').remove();
+        listed = _.without(listed, item);
+        console.log(item + " to be removed " + listed);
+        update();
+        load_sub();
+    });
+}
+
+// Initializes the dropdown category
+var initCategoryDropdown = function() {
     cat_items = "";
     for (var sub in subjects) {
         cat_items += li_beg + sub + li_mid + dict[sub] + li_end;
     }
-
     $("#cat-drop").html(cat_items);
     if (!category) {
         $("#sub-button").addClass("disabled");
         console.log("Button disabled");
     }
+}
+
+// When a category is clicked, change the subject dropdown to Select <caret> and
+// call load_sub to properly populate the subjects dropdown
+var categoryElementClickHandler = function() {
     $('.cat-element').click(function() {
         new_cat = $(this).attr('id');
         if (category !== new_cat) {
@@ -383,26 +410,11 @@ $(function() {
         console.log(category + " clicked");
         load_sub();
     });
-    $('.score-num').click(function() {
-        score = parseInt($(this).text());
-        $('#score').text(score);
-    });
-    $('.college-choice').click(function() {
-        $('#college').text($(this).text());
-        college = $(this).attr('id');
-        console.log("Changing college to " + college);
-        buildTable();
-        $('.remove').click(function() {
-            console.log("Remove called");
-            var item = $(this).attr("id");
+}
 
-            $(this).closest('tr').remove();
-            listed = _.without(listed, item);
-            console.log(item + " to be removed " + listed);
-            update();
-            load_sub();
-        });
-    })
+// Add an element to the table and to listed, then update the subjects dropdown so
+// the class won't be in the dropdown menu again
+var addToTable = function() {
     $('#add').click(function() {
         if (subject && _.indexOf(listed, subject) < 0) {
             units_add = parseFloat(units[subject] / 1.5).toFixed(1);
@@ -417,28 +429,36 @@ $(function() {
             update();
             load_sub();
         }
-        $('.remove').click(function() {
-            console.log("Remove called");
-            var item = $(this).attr("id");
-
-            $(this).closest('tr').remove();
-            listed = _.without(listed, item);
-            console.log(item + " to be removed " + listed);
-            update();
-            load_sub();
-        });
+        addRemoveHandler();
         console.log("Add pushed " + subject);
     });
-    $('.remove').click(function() {
-        console.log("Remove called");
-        var item = $(this).attr("id");
+}
 
-        $(this).closest('tr').remove();
-        listed = _.without(listed, item);
-        console.log(item + " to be removed " + listed);
-        update();
-        load_sub();
+// Change college and rebuild the table with the correct requirements
+var collegeChangeHandler = function() {
+    $('.college-choice').click(function() {
+        $('#college').text($(this).text());
+        college = $(this).attr('id');
+        console.log("Changing college to " + college);
+        buildTable();
+        
     });
+}
+
+// Change the score (We don't use the score for anything at the moment)
+var scoreChangeHandler = function() {
+    $('.score-num').click(function() {
+        score = parseInt($(this).text());
+        $('#score').text(score);
+    });
+}
+
+$(function() {
+    initCategoryDropdown();
+    categoryElementClickHandler();
+    collegeChangeHandler();
+    scoreChangeHandler();
+    addToTable();
 });
 
 
