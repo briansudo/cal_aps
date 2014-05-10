@@ -267,6 +267,7 @@ var subject  = null;
 var score    = 5;
 var credits  = 0;
 var standing = 'Freshman';
+var using_ap = true; // If using IB, using_ap is False
 
 // CODE FOR LIST ELEMENT
 // var proper_li_ele = li_beg + SOME_ID + li_mid(_x) + dict[SOME_ID] + li_end;
@@ -451,6 +452,15 @@ var scoreChangeHandler = function() {
         score = parseInt($(this).text());
         $('#score').text(score);
     });
+}
+
+var populateCategoryDropdown = function() {
+    // Fix Me
+}
+
+var switchAPIB = function() {
+    // Fix Me
+    populateCategoryDropdown();
 }
 
 $(function() {
