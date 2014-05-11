@@ -320,12 +320,12 @@ var update = function() {
 
 // Calculates how many units student has earned with selected classes
 var updateUnits = function() {
-    arts = 0;
-    eng  = 0;
-    calc = 0;
-    phys = 0;
+    var arts = 0;
+    var eng  = 0;
+    var calc = 0;
+    var phys = 0;
     var listed_length = listed.length;
-    count = 0;
+    var count = 0;
     for (var i = 0; i < listed_length; i++) {
         if (_.indexOf(subjects["eng"], listed[i]) >= 0) {
             eng = 8;
