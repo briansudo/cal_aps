@@ -455,11 +455,19 @@ var scoreChangeHandler = function() {
 }
 
 var populateCategoryDropdown = function() {
-    // Fix Me
+    if(using_ap){
+		//do AP stuff
+	}else{
+		//Do IB stuff
+	}
 }
 
 var switchAPIB = function() {
-    // Fix Me
+    $('.type').click(function() {
+		using_ap = parseInt($(this).attr('data-using-ap'));
+		$(this).removeClass('btn-default').addClass('btn-primary disabled');
+		$('.type').not(this).removeClass('btn-primary disabled').addClass('btn-default');
+	});
     populateCategoryDropdown();
 }
 

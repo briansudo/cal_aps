@@ -22,19 +22,26 @@
     </head>
     <body>
         <nav class="navbar-default" role="navigation">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-
-                <a class="navbar-brand" href="/">
-                    <span id="maintitle" class="color1">
-                        Cal
-                    </span>
-                    <span id="maintitle2" class="color2">
-                        APs
-                </span></a>
-            </div>
-        </div><!-- /.container-fluid -->
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">
+						<span id="maintitle" class="color1">
+							Cal
+						</span>
+						<span id="maintitle2" class="color2">
+							APs
+					</span></a>
+				</div>
+				<!--Commented out until IB works-->
+				<!--
+				<div class="nav navbar-nav navbar-right">
+					<div class="btn-group">
+					  <button type="button" class="btn btn-primary disabled type" data-using-ap="1">AP</button>
+					  <button type="button" class="btn btn-default type" data-using-ap="0">IB</button>
+					</div>
+				</div>
+				-->
+			</div><!-- /.container-fluid -->
         </nav>
         <br>
         <div class="container-fluid text-center">
@@ -50,7 +57,6 @@
             </div>
             <div class="btn-group dropdown">
                 <button data-toggle="dropdown" class=" btn btn-primary dropdown-toggle" id="cat-button"> 
-                <!-- Link or button to toggle dropdown --> 
                 <span id="cat">Category <span class="caret"></span></span> </button>
                 <ul id="cat-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="max-width: 200px;">
                     <li><a id="arts" tabindex="-1" href="#" class="cat-element">Arts</a></li>
@@ -63,15 +69,12 @@
             </div>
             <div class="btn-group dropdown">
                 <button data-toggle="dropdown" id="sub-button" class="btn btn-primary pull-center disabled dropdown-toggle"> 
-                <!-- Link or button to toggle dropdown --> 
                 <span id="sub">Select <span class="caret"></span></span> </button>
                 <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 200px;">
                 </ul>
             </div>
             <div class="btn-group dropdown">
                 <button data-toggle="dropdown" id="score-button" class="btn btn-primary dropdown-toggle"> 
-                <!-- Link or button to toggle dropdown --> 
-                
                 <span id="score">5</span> </button>
                 <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 0px;">
                     <li role="presentation"> <a id="five" class="score-num" role="menuitem" tabindex="-1" href="#">5</a> </li>
@@ -84,8 +87,6 @@
             </div>
         </div>
         <br>
-
-
         <div class="container col-md-offset-3 col-md-6 text-center">
             <div class="row">
                 <p>
@@ -106,21 +107,15 @@
                     <th style="text-align:center">Remove</th>
                 </thead>
                 <tbody id="ap-table">
-
                 </tbody>
-
             </table>
-
         </div>
-    </div>
-    <div id="footer">
-        <div class="container">
-            <p class="text-muted">By <a href="http://www.brianysu.com">Brian Su</a> and Gurpeet Atwal</p>
-        </div>
-    </div>
-
-
-</body>
+		<div id="footer">
+			<div class="container-fluid">
+				<p class="text-muted text-center">By <a href="http://www.brianysu.com">Brian Su</a> and Gurpeet Atwal</p>
+			</div>
+		</div>
+	</body>
 
 <script src="{% static "app/js/jquery-2.1.1.min.js" %}"></script>
 <script src="{% static "app/js/underscore-min.js" %}"></script>
