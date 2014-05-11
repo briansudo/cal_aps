@@ -38,56 +38,46 @@
         </nav>
         <br>
         <div class="container-fluid text-center">
-
-
-            <div class="btn-group">
-                <button id="college-button" class="dropdown btn btn-primary">
-                    <!-- Link or button to toggle dropdown -->
-                    <span id="college">Letters and Science <span class="caret"></span></span>
-                    <ul id="college-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 200px;">
-                        <li role="presentation"><a id="ls" class="college-choice" role="menuitem" tabindex="-1" href="#">Letters and Science</a></li>
-                        <li role="presentation"><a id="chem" class="college-choice" role="menuitem" tabindex="-1" href="#">Chemistry</a></li>
-                        <li role="presentation"><a id="eng" class="college-choice" role="menuitem" tabindex="-1" href="#">Engineering</a></li>
-                        <li role="presentation"><a id="haas" class="college-choice" role="menuitem" tabindex="-1" href="#">Haas</a></li>
-                        <li role="presentation"><a id="cnr" class="college-choice" role="menuitem" tabindex="-1" href="#">Natural Resources</a></li>
-                    </ul>
-                </button>
+            <div class="btn-group dropdown">
+                <button data-toggle="dropdown" id="college-button" class="btn btn-primary dropdown-toggle"> <span id="college">Letters and Science <span class="caret"></span></span> </button>
+                <ul id="college-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 200px;">
+                    <li role="presentation"><a id="ls" class="college-choice" role="menuitem" tabindex="-1" href="#">Letters and Science</a></li>
+                    <li role="presentation"><a id="chem" class="college-choice" role="menuitem" tabindex="-1" href="#">Chemistry</a></li>
+                    <li role="presentation"><a id="eng" class="college-choice" role="menuitem" tabindex="-1" href="#">Engineering</a></li>
+                    <li role="presentation"><a id="haas" class="college-choice" role="menuitem" tabindex="-1" href="#">Haas</a></li>
+                    <li role="presentation"><a id="cnr" class="college-choice" role="menuitem" tabindex="-1" href="#">Natural Resources</a></li>
+                </ul>
             </div>
-            <div class="btn-group">
-                <button id="cat-button" class="dropdown btn btn-primary">
-                    <!-- Link or button to toggle dropdown -->
-                    <span id="cat">Category <span class="caret"></span></span>
-                    <ul id="cat-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="max-width: 200px;">
-
-                    </ul>
-                </button>
-
-
+            <div class="btn-group dropdown">
+                <button data-toggle="dropdown" class=" btn btn-primary dropdown-toggle" id="cat-button"> 
+                <!-- Link or button to toggle dropdown --> 
+                <span id="cat">Category <span class="caret"></span></span> </button>
+                <ul id="cat-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="max-width: 200px;">
+                    <li><a id="arts" tabindex="-1" href="#" class="cat-element">Arts</a></li>
+                    <li><a id="eng" tabindex="-1" href="#" class="cat-element">English</a></li>
+                    <li><a id="hss" tabindex="-1" href="#" class="cat-element">History &amp; Social Sciences</a></li>
+                    <li><a id="mcs" tabindex="-1" href="#" class="cat-element">Math &amp; Computer Science</a></li>
+                    <li><a id="sci" tabindex="-1" href="#" class="cat-element">Sciences</a></li>
+                    <li><a id="langs" tabindex="-1" href="#" class="cat-element">Languages</a></li>
+                </ul>
             </div>
-
-            <div class="btn-group">
-                <button id="sub-button" class="dropdown btn btn-primary pull-center">
-                    <!-- Link or button to toggle dropdown -->
-                    <span id="sub">Select <span class="caret"></span></span>
-                    <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 200px;">
-
-
-
-                    </ul>
-                </button>
+            <div class="btn-group dropdown">
+                <button data-toggle="dropdown" id="sub-button" class="btn btn-primary pull-center disabled dropdown-toggle"> 
+                <!-- Link or button to toggle dropdown --> 
+                <span id="sub">Select <span class="caret"></span></span> </button>
+                <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 200px;">
+                </ul>
             </div>
-            <div class="btn-group">
-                <button id="score-button" class="dropdown btn btn-primary">
-                    <!-- Link or button to toggle dropdown -->
-
-                    <span id="score">5</span>
-                    <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 0px;">
-                        <li role="presentation"><a id="five" class="score-num" role="menuitem" tabindex="-1" href="#">5</a></li>
-                        <li role="presentation"><a id="four" class="score-num" role="menuitem" tabindex="-1" href="#">4</a></li>
-                        <li role="presentation"><a id="three" class="score-num" role="menuitem" tabindex="-1" href="#">3</a></li>
-
-                    </ul>
-                </button>
+            <div class="btn-group dropdown">
+                <button data-toggle="dropdown" id="score-button" class="btn btn-primary dropdown-toggle"> 
+                <!-- Link or button to toggle dropdown --> 
+                
+                <span id="score">5</span> </button>
+                <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 0px;">
+                    <li role="presentation"> <a id="five" class="score-num" role="menuitem" tabindex="-1" href="#">5</a> </li>
+                    <li role="presentation"><a id="four" class="score-num" role="menuitem" tabindex="-1" href="#">4</a></li>
+                    <li role="presentation"><a id="three" class="score-num" role="menuitem" tabindex="-1" href="#">3</a></li>
+                </ul>
             </div>
             <div class="btn-group">
                 <button id="add" class="btn btn-success">+</button>
@@ -125,7 +115,7 @@
     </div>
     <div id="footer">
         <div class="container">
-            <p class="text-muted">By <a href="http://www.brianysu.com">Brian Su</a></p>
+            <p class="text-muted">By <a href="http://www.brianysu.com">Brian Su</a> and Gurpeet Atwal</p>
         </div>
     </div>
 
