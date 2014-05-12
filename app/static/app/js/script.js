@@ -1,84 +1,114 @@
-var subjects = {
-    "arts": ["art_hist", "music", "std_art"],
-    "eng": ["lit", "lang"],
-    "hss": ["comp_gov", "euro", "human", "macro", "micro", "psych", "gov", "ush", "world"],
-    "mcs": ["ab", "bc", "cs", "stats"],
-    "sci": ["bio", "chem", "env", "phys_b", "em", "mech"],
-    "langs": ["ch", "fr", "ger", "jpn", "lat", "sp_lang", "sp_lit"],
-};
+//Call subjects based on the variable using_ap; subjects[using_ap] returns ap subjects if using_ap is 1 and vice versa
+var subjects = [
+	{
+		"eng": ["engA1", "engA2","engB"],
+		"langs": ["ch", "fr", "ger", "jpn", "lat", "sp_lang", "sp_lit"],
+		"social": ["bm","econ","geo","hist","itgs","philo","psych","anthro"],
+		"scimat": ["mat","bio","cs","chem","dtech","phys"], 
+		"arts": []
+	},
+	{
+		"arts": ["art_hist", "music", "std_art"],
+		"eng": ["lit", "lang"],
+		"hss": ["comp_gov", "euro", "human", "macro", "micro", "psych", "gov", "ush", "world"],
+		"mcs": ["ab", "bc", "cs", "stats"],
+		"sci": ["bio", "chem", "env", "phys_b", "em", "mech"],
+		"langs": ["ch", "fr", "ger", "jpn", "lat", "sp_lang", "sp_lit"]
+	}
+];
+
+//all other variables would be called in the same manner
+var dict = [
+	{
+		"eng": "English",
+		"langs": "Languages",
+		"social": "Individuals & Societes",
+		"scimat": "Science & Math",
+		"arts": "Arts",
+		"engA1": "English A1",
+		"engA2": "English A2",
+		"engB": "English B",
+		"mat": "Math",
+		"bio": "Biology",
+		"cs" : "Computer Science",
+		"chem": "Chemistry",
+		"dtech": "Design Technology",
+		"phys": "Physics",
+		"geo": "Geography",
+	},
+	{
+		"arts": "Arts",
+		"eng": "English",
+		"hss": "History & Social Sciences",
+		"mcs": "Math & Computer Science",
+		"sci": "Sciences",
+		"langs": "Languages",
+		"art_hist": "Art History",
+		"music": "Music Theory",
+		"std_art": "Studio Art",
+		"lit": "English Literature",
+		"lang": "English Language",
+		"comp_gov": "Comparative Government",
+		"euro": "European History",
+		"human": "Human Geography",
+		"macro": "Macroeconomics",
+		"micro": "Microeconomics",
+		"psych": "Psychology",
+		"gov": "US Government",
+		"ush": "US History",
+		"world": "World History",
+		"ab": "Calculus AB",
+		"bc": "Calculus BC",
+		"cs": "Computer Science A",
+		"stats": "Statistics",
+		"bio": "Biology",
+		"chem": "Chemistry",
+		"env": "Environmental Science",
+		"phys_b": "Physics B",
+		"em": "Physics C: EM",
+		"mech": "Physics C: Mechanics",
+		"ch": "Chinese",
+		"fr": "French",
+		"ger": "German",
+		"jpn": "Japanese",
+		"lat": "Latin",
+		"sp_lang": "Spanish Language",
+		"sp_lit": "Spanish Literature"
+	}
+];
 
 var units = {
-    "art_hist": 8,
-    "music": 8,
-    "std_art": 8,
-    "lit": 8,
-    "lang": 8,
-    "comp_gov": 4,
-    "euro": 8,
-    "human": 4,
-    "macro": 4,
-    "micro": 4,
-    "psych": 4,
-    "gov": 4,
-    "ush": 8,
-    "world": 8,
-    "ab": 4,
-    "bc": 8,
-    "cs": 2,
-    "stats": 4,
-    "bio": 8,
-    "chem": 8,
-    "env": 4,
-    "phys_b": 8,
-    "em": 4,
-    "mech": 4,
-    "ch": 8,
-    "fr": 8,
-    "ger": 8,
-    "jpn": 8,
-    "lat": 8,
-    "sp_lang": 8,
-    "sp_lit": 8,
-};
-
-var dict = {
-    "arts": "Arts",
-    "eng": "English",
-    "hss": "History & Social Sciences",
-    "mcs": "Math & Computer Science",
-    "sci": "Sciences",
-    "langs": "Languages",
-    "art_hist": "Art History",
-    "music": "Music Theory",
-    "std_art": "Studio Art",
-    "lit": "English Literature",
-    "lang": "English Language",
-    "comp_gov": "Comparative Government",
-    "euro": "European History",
-    "human": "Human Geography",
-    "macro": "Macroeconomics",
-    "micro": "Microeconomics",
-    "psych": "Psychology",
-    "gov": "US Government",
-    "ush": "US History",
-    "world": "World History",
-    "ab": "Calculus AB",
-    "bc": "Calculus BC",
-    "cs": "Computer Science A",
-    "stats": "Statistics",
-    "bio": "Biology",
-    "chem": "Chemistry",
-    "env": "Environmental Science",
-    "phys_b": "Physics B",
-    "em": "Physics C: EM",
-    "mech": "Physics C: Mechanics",
-    "ch": "Chinese",
-    "fr": "French",
-    "ger": "German",
-    "jpn": "Japanese",
-    "lat": "Latin",
-    "sp_lang": "Spanish Language",
-    "sp_lit": "Spanish Literature",
+	"art_hist": 8,
+	"music": 8,
+	"std_art": 8,
+	"lit": 8,
+	"lang": 8,
+	"comp_gov": 4,
+	"euro": 8,
+	"human": 4,
+	"macro": 4,
+	"micro": 4,
+	"psych": 4,
+	"gov": 4,
+	"ush": 8,
+	"world": 8,
+	"ab": 4,
+	"bc": 8,
+	"cs": 2,
+	"stats": 4,
+	"bio": 8,
+	"chem": 8,
+	"env": 4,
+	"phys_b": 8,
+	"em": 4,
+	"mech": 4,
+	"ch": 8,
+	"fr": 8,
+	"ger": 8,
+	"jpn": 8,
+	"lat": 8,
+	"sp_lang": 8,
+	"sp_lit": 8
 };
 
 var reqs_chem = {
@@ -251,9 +281,38 @@ var reqs_cnr = {
     "sp_lit": "EEP: Satisfies Foreign Language requirement.",
 };
 
+//if we go the other route the variable below will be merged with reqs_eng 
+
+//Score of 5,6 or 7 = 5.3 units; If taken as part of diploma units capped at 20
+var ib_eng = {
+	"art":"One lower division Humanities/Social Science",
+	"bio":"Biology 1A/1AL and Biology 1B",
+	"chem":"Chemistry 1A/1AL",
+	"cs":"CompSci 61B, if student completes CS47B at UCB",
+	"eocn":"One lower division Humanities/Social Science",
+	"engA1":"Entry Level Writing & Reading & Comp 'A'",
+	"engA2":"One lower division Humanities/Social Science",
+	"engB":"None",
+	"fr":"One lower division Humanities/Social Science",
+	"geo":"One lower division Humanities/Social Science",
+	"ger":"One lower division Humanities/Social Science",
+	"greek":"One lower division Humanities/Social Science",
+	"us":"One lower division Humanities/Social Science",
+	"eurp":"One lower division Humanities/Social Science",
+	"lat":"One lower division Humanities/Social Science",
+	"math":"Math 1A and Math 1B",
+	"music":"One lower division Humanities/Social Science",
+	"philo":"One lower division Humanities/Social Science",
+	"phys":"None", //No credits given
+	"port":"One lower division Humanities/Social Science",
+	"sp":"One lower division Humanities/Social Science",
+	"theater":"One lower division Humanities/Social Science"
+}
+
 // Dictionary of colleges and their corresponding requirements
 // When we add IB, we should create a similar dictionary. Then, we just have another dictionary like:
-// var choose_dict = {'ap': college_dict, 'ib': college_ib_dict};
+var choose_dict = {'ap': college_dict, 'ib': college_ib_dict};
+var college_ib_dict = {'eng':ib_eng}
 var college_dict = {'ls': reqs_ls, 'chem': reqs_chem, 'eng': reqs_eng, 'haas': reqs_haas, 'cnr': reqs_cnr};
 
 // Add and remove classes from this array. This prevents duplicates since
@@ -267,7 +326,7 @@ var subject  = null;
 var score    = 5;
 var credits  = 0;
 var standing = 'Freshman';
-var using_ap = true; // If using IB, using_ap is False
+var using_ap = 0; // If using IB, using_ap is 1
 
 // CODE FOR LIST ELEMENT
 // var proper_li_ele = li_beg + SOME_ID + li_mid(_x) + dict[SOME_ID] + li_end;
