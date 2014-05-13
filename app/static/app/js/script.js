@@ -251,10 +251,44 @@ var reqs_cnr = {
     "sp_lit": "EEP: Satisfies Foreign Language requirement.",
 };
 
+var reqs_ced = {
+    "art_hist": "Arts & Literature OR Historical Studies",
+    "music": "Arts & Literature",
+    "std_art": "Arts & Literature",
+    "lit": "3 satisfies Entry Level Writing. 4 satisfies 1st half of Reading and Comp. 5 satisfies 2nd half of Reading and Comp.",
+    "lang": "3 satisfies Entry Level Writing. 4+ satisfies 1st half Reading and Comp",
+    "comp_gov": "International Studies (all majors) OR Social & Behavioral Studies (LA and Arch majors only)",
+    "euro": "Historical Studies",
+    "human": "Social & Behavioral Sciences (LA and Arch majors only)",
+    "macro": "Social & Behavioral Sciences (Arch and LA majors only)",
+    "micro": "Social & Behavioral Sciences (all majors); fulfills Economics requirement for US majors and CP minors.",
+    "psych": "Social & Behavioral Sciences (LA and Arche majors only)",
+    "gov": "Social & Behavioral Sciences (LA and Arch majors only)",
+    "ush": "American History & Institutions, Historical Studies",
+    "world": "Historical Studies OR International Studies",
+    "ab": "Math 16A",
+    "bc": "Math 16A",
+    "cs": "",
+    "stats": "Statistics 2 (US majors and CP minors)",
+    "bio": "Biological Science (US and Arch majors only)",
+    "chem": "Physical Science (US majors only)",
+    "env": "Physical Science (US only), Biological Science (all majors); fulfills lower division biology requirement for LA majors.",
+    "phys_b": "Physical Science (US and LA majors only)",
+    "em": "Physical Science (US and LA majors only)",
+    "mech": "Physical Science (all majors); lower division physics requirement for Arch and LA majors",
+    "ch": "International Studies",
+    "fr": "International Studies",
+    "ger": "International Studies",
+    "jpn": "International Studies",
+    "lat": "EACH exam satisfies Arts & Literature",
+    "sp_lang": "International Studies",
+    "sp_lit": "International Studies OR Arts & Literature",
+};
+
 // Dictionary of colleges and their corresponding requirements
 // When we add IB, we should create a similar dictionary. Then, we just have another dictionary like:
 // var choose_dict = {'ap': college_dict, 'ib': college_ib_dict};
-var college_dict = {'ls': reqs_ls, 'chem': reqs_chem, 'eng': reqs_eng, 'haas': reqs_haas, 'cnr': reqs_cnr};
+var college_dict = {'ls': reqs_ls, 'chem': reqs_chem, 'eng': reqs_eng, 'haas': reqs_haas, 'cnr': reqs_cnr, 'ced': reqs_ced};
 
 // Add and remove classes from this array. This prevents duplicates since
 // we just have to check if a class is in here before we populate the dropdowns.
@@ -364,7 +398,7 @@ var buildTable = function() {
         + '<td>' + score + '</td>'
         + '<td>' + units_add + '</td>'
         + '<td>' + college_dict[college][listed[i]] + '</td>'
-        + '<td>' + '<a href="#" class="fa fa-times-circle remove" id="' + listed[i] + '"></a>' + '</td>';
+        + '<td>' + '<span class="fa fa-times-circle remove" id="' + listed[i] + '"></span>' + '</td>';
         $("#ap-table").html($("#ap-table").html() + table_add);
     }
     addRemoveHandler();	
@@ -423,7 +457,7 @@ var addToTable = function() {
             + '<td>' + score + '</td>'
             + '<td>' + units_add + '</td>'
             + '<td>' + college_dict[college][subject] + '</td>'
-            + '<td>' + '<a href="#" class="fa fa-times-circle remove" id="' + subject + '"></a>' + '</td>';
+            + '<td>' + '<span class="fa fa-times-circle remove" id="' + subject + '"></span>' + '</td>';
 
             $("#ap-table").html($("#ap-table").html() + table_add);
             listed.push(subject);
