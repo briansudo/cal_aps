@@ -18,14 +18,14 @@ var subjects = [
 
 var dict = [
 	{
-		'eng': 'English',
-		'langs': 'Languages',
-		'social': 'Individuals & Societes',
-		'scimat': 'Science & Math',
-		'arts': 'Arts',
-		'engA1': 'English A1(English: Literature)',
-		'engA2': 'English A2',
-		'engB': 'English B',
+		'eng':'English',
+		'langs':'Languages',
+		'social':'Individuals & Societes',
+		'scimat':'Science & Math',
+		'arts':'Arts',
+		'engA1':'English A1(English: Literature)',
+		'engA2':'English A2',
+		'engB':'English B',
 		'arf':'Afrikaans',
 		'arb':'Arabic',
 		'ch':'Chinese',
@@ -151,73 +151,185 @@ var units = {
 	'sp_lit': 8
 };
 
-var reqs_chem = {
-    'art_hist': '3 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'music': '3 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'std_art': '',
-    'lit': '3 satisfies Entry-Level Writing. 4 satisfies R1A req with 4 units of credit toward the Breadth requirement (Group I). 5 satisfies R1B req with 5.3 units of credit total toward the Breadth req (Group I)',
-    'lang': '3 satisfies Entry-Level Writing. 4+ satisfies R1A req with 4 units of credit toward the Breadth requirement (Group I).',
-    'comp_gov': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'euro': '3 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'human': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'macro': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'micro': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'psych': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'gov': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'ush': '3 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'world': '3 units of credit (for each test) toward the Breadth requirement (Group II)',
-    'ab': 'Math 1A',
-    'bc': '3 or 4 satisfies Math 1A. 5 satisfies Math 1A and 1B.',
-    'cs': '',
-    'stats': '',
-    'bio': 'For chemical biology or chemical engineering majors, 4+ satisfies 1A and 1AL.',
-    'chem': '',
-    'env': '',
-    'phys_b': '',
-    'em': 'If sum of EM and Mech is greater than 8, Physics 7A is satisified.',
-    'mech': 'If sum of EM and Mech is greater than 8, Physics 7A is satisified.',
-    'ch': 'For chemical engineering majors, 5.3 units of credit (for each test) toward the Breadth requirement (Group II). Note: For chemical engineering majors, no more than 6 units of foreign language may be counted toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 5.3 units of credit toward the Breadth requirement (Group II)',
-    'fr': 'For chemical engineering majors, 5.3 units of credit (for each test) toward the Breadth requirement (Group II). Note: For chemical engineering majors, no more than 6 units of foreign language may be counted toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 5.3 units of credit toward the Breadth requirement (Group II)',
-    'ger': 'For chemical engineering majors, 5.3 units of credit (for each test) toward the Breadth requirement (Group II). Note: For chemical engineering majors, no more than 6 units of foreign language may be counted toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 5.3 units of credit toward the Breadth requirement (Group II)',
-    'jpn': 'For chemical engineering majors, 5.3 units of credit (for each test) toward the Breadth requirement (Group II). Note: For chemical engineering majors, no more than 6 units of foreign language may be counted toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 5.3 units of credit toward the Breadth requirement (Group II)',
-    'lat': 'For chemical engineering majors, 2.7 units of credit (for each test) toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 2.7 units of credit toward the Breadth requirement (Group II)',
-    'sp_lang': 'For chemical engineering majors, 5.3 units of credit (for each test) toward the Breadth requirement (Group II). Note: For chemical engineering majors, no more than 6 units of foreign language may be counted toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 5.3 units of credit toward the Breadth requirement (Group II)',
-    'sp_lit': 'For chemical engineering majors, 3 units of credit (for each test) toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 3 units of credit toward the Breadth requirement (Group II)',
-};
+var reqs_chem = [
+	{
+		'engA1':'Entry Level, Writing A and B level Reading & Composition courses. 5.3 units of credit toward the Breadth requirement (Group I)',
+		'engA2':'Entry Level, Writing A and B level Reading & Composition courses. 5.3 units of credit toward the Breadth requirement (Group I)',
+		'engB':'None',
+		'arf':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors. For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'arb':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'ch':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'dn':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'du':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'fin':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'fr':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'ger':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'gre':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'heb':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'hin':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'indo':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'ita':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'jp':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'lat':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'mal':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'nor':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'per':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'pi':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'pol':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'port':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'ru':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'ser':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'sis':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'slo':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'sp':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'swa':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'swe':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'turk':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'urdu':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'wel':'For chemical engineering majors, 5.3 units toward the Breadth requirement (Group II). No more than 6 units of foreign language credit may be counted toward the Breath requirement (Group II) for chemical engineering majors.  For chemistry and chemical biology majors, each exam satisfies either the Foreign Language requirement or 5.3 units toward the Breadth requirement (Group II).',
+		'anthro':'3 units (for each exam) toward the Breadth requirement (Group II)',
+		'econ':'3 units (for each exam) toward the Breadth requirement (Group II)',
+		'geo':'3 units (for each exam) toward the Breadth requirement (Group II)',
+		'hist':'3 units (for each exam) toward the Breadth requirement (Group II). History of the Americas option also satisfies the Am. History & Inst. requirement',
+		'philo':'3 units (for each exam) toward the Breadth requirement (Group II)',
+		'psych':'3 units (for each exam) toward the Breadth requirement (Group II)',
+		'bio':'For chemical biology or chemical engineering majors, Bio 1A/L. For chemistry majors, does not satisfy any college/major requirement',
+		'chem':'Chem 1A/L; does not satisfy 4A',
+		'cs':'None',
+		'mat2':'Syllabi are evaluated on a case-by-case basis for equivalency to Math 1A and 1B',
+		'mat':'Syllabi are evaluated on a case-by-case basis for equivalency to Math 1A and 1B',
+		'phys':'None',
+		'es':'None',
+		'dance':'None',
+		'music':'3 units toward the Breadth requirement (Group II)',
+		'film':'',
+		'act':'None',
+		'visart': '3 units toward the Breadth requirement (Group II)'
+	},
+	{
+		'art_hist': '3 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'music': '3 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'std_art': '',
+		'lit': '3 satisfies Entry-Level Writing. 4 satisfies R1A req with 4 units of credit toward the Breadth requirement (Group I). 5 satisfies R1B req with 5.3 units of credit total toward the Breadth req (Group I)',
+		'lang': '3 satisfies Entry-Level Writing. 4+ satisfies R1A req with 4 units of credit toward the Breadth requirement (Group I).',
+		'comp_gov': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'euro': '3 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'human': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'macro': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'micro': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'psych': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'gov': '2.7 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'ush': '3 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'world': '3 units of credit (for each test) toward the Breadth requirement (Group II)',
+		'ab': 'Math 1A',
+		'bc': '3 or 4 satisfies Math 1A. 5 satisfies Math 1A and 1B.',
+		'cs': '',
+		'stats': '',
+		'bio': 'For chemical biology or chemical engineering majors, 4+ satisfies 1A and 1AL.',
+		'chem': '',
+		'env': '',
+		'phys_b': '',
+		'em': 'If sum of EM and Mech is greater than 8, Physics 7A is satisified.',
+		'mech': 'If sum of EM and Mech is greater than 8, Physics 7A is satisified.',
+		'ch': 'For chemical engineering majors, 5.3 units of credit (for each test) toward the Breadth requirement (Group II). Note: For chemical engineering majors, no more than 6 units of foreign language may be counted toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 5.3 units of credit toward the Breadth requirement (Group II)',
+		'fr': 'For chemical engineering majors, 5.3 units of credit (for each test) toward the Breadth requirement (Group II). Note: For chemical engineering majors, no more than 6 units of foreign language may be counted toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 5.3 units of credit toward the Breadth requirement (Group II)',
+		'ger': 'For chemical engineering majors, 5.3 units of credit (for each test) toward the Breadth requirement (Group II). Note: For chemical engineering majors, no more than 6 units of foreign language may be counted toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 5.3 units of credit toward the Breadth requirement (Group II)',
+		'jpn': 'For chemical engineering majors, 5.3 units of credit (for each test) toward the Breadth requirement (Group II). Note: For chemical engineering majors, no more than 6 units of foreign language may be counted toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 5.3 units of credit toward the Breadth requirement (Group II)',
+		'lat': 'For chemical engineering majors, 2.7 units of credit (for each test) toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 2.7 units of credit toward the Breadth requirement (Group II)',
+		'sp_lang': 'For chemical engineering majors, 5.3 units of credit (for each test) toward the Breadth requirement (Group II). Note: For chemical engineering majors, no more than 6 units of foreign language may be counted toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 5.3 units of credit toward the Breadth requirement (Group II)',
+		'sp_lit': 'For chemical engineering majors, 3 units of credit (for each test) toward the Breadth requirement (Group II). For chemistry or chemical biology majors, each test satisfies either the Foreign Language requirement or 3 units of credit toward the Breadth requirement (Group II)',
+	}
+];
 
-var reqs_eng = {
-    'art_hist': 'One lower division H/SS',
-    'music': 'One lower division H/SS',
-    'std_art': 'One lower division H/SS',
-    'lit': '3 satisfies Entry Level Writing. 4+ satisfies Reading and Comp "A"',
-    'lang': '3 satisfies Entry Level Writing. 4+ satisfies Reading and Comp "A"',
-    'comp_gov': 'One lower division H/SS',
-    'euro': 'One lower division H/SS',
-    'human': 'One lower division H/SS',
-    'macro': 'One lower division H/SS',
-    'micro': 'One lower division H/SS',
-    'psych': 'One lower division H/SS',
-    'gov': 'One lower division H/SS',
-    'ush': 'One lower division H/SS',
-    'world': 'One lower division H/SS',
-    'ab': '3+ satisfies Math 1A',
-    'bc': '3 satisfies Math 1A. 4+ satisfies Math 1A and 1B.',
-    'cs': '',
-    'stats': '',
-    'bio': '4+ satisfies Bio 1A/1AL and 1B',
-    'chem': '3+ satisfies Chem 1A/1AL',
-    'env': '',
-    'phys_b': '',
-    'em': '',
-    'mech': '5 satisfies Physics 7A',
-    'ch': 'One lower division H/SS',
-    'fr': 'One lower division H/SS',
-    'ger': 'One lower division H/SS',
-    'jpn': 'One lower division H/SS',
-    'lat': 'One lower division H/SS',
-    'sp_lang': 'One lower division H/SS',
-    'sp_lit': 'One lower division H/SS',
-};
+var reqs_eng = [
+	{
+		'engA1':'Entry Level Writing & Reading & Comp "A"',
+		'engA2':'One lower division Humanities/Social Science',
+		'engB':'None',
+		'arf':'',
+		'arb':'',
+		'ch':'',
+		'dn':'',
+		'du':'',
+		'fin':'',
+		'fr':'One lower division Humanities/Social Science',
+		'ger':'One lower division Humanities/Social Science',
+		'gre':'One lower division Humanities/Social Science',
+		'heb':'',
+		'hin':'',
+		'indo':'',
+		'ita':'',
+		'jp':'',
+		'lat':'One lower division Humanities/Social Science',
+		'mal':'',
+		'nor':'',
+		'per':'',
+		'pi':'',
+		'pol':'',
+		'port':'One lower division Humanities/Social Science',
+		'ru':'',
+		'ser':'',
+		'sis':'',
+		'slo':'',
+		'sp':'One lower division Humanities/Social Science',
+		'swa':'',
+		'swe':'',
+		'turk':'',
+		'urdu':'',
+		'wel':'',
+		'anthro':'',
+		'econ':'One lower division Humanities/Social Science',
+		'geo':'One lower division Humanities/Social Science',
+		'hist':'One lower division Humanities/Social Science',
+		'philo':'One lower division Humanities/Social Science',
+		'psych':'',
+		'bio':'Biology 1A/1AL and Biology 1B',
+		'chem':'Chemistry 1A/1AL',
+		'cs':'CompSci 61B, if student completes CS47B at UCB',
+		'mat2':'Math 1A and Math 1B',
+		'mat':'Math 1A and Math 1B',
+		'phys':'None',
+		'es':'',
+		'dance':'',
+		'music':'One lower division Humanities/Social Science',
+		'film':'',
+		'act':'One lower division Humanities/Social Science',
+		'visart': 'One lower division Humanities/Social Science'
+	},
+	{
+		'art_hist': 'One lower division H/SS',
+		'music': 'One lower division H/SS',
+		'std_art': 'One lower division H/SS',
+		'lit': '3 satisfies Entry Level Writing. 4+ satisfies Reading and Comp "A"',
+		'lang': '3 satisfies Entry Level Writing. 4+ satisfies Reading and Comp "A"',
+		'comp_gov': 'One lower division H/SS',
+		'euro': 'One lower division H/SS',
+		'human': 'One lower division H/SS',
+		'macro': 'One lower division H/SS',
+		'micro': 'One lower division H/SS',
+		'psych': 'One lower division H/SS',
+		'gov': 'One lower division H/SS',
+		'ush': 'One lower division H/SS',
+		'world': 'One lower division H/SS',
+		'ab': '3+ satisfies Math 1A',
+		'bc': '3 satisfies Math 1A. 4+ satisfies Math 1A and 1B.',
+		'cs': '',
+		'stats': '',
+		'bio': '4+ satisfies Bio 1A/1AL and 1B',
+		'chem': '3+ satisfies Chem 1A/1AL',
+		'env': '',
+		'phys_b': '',
+		'em': '',
+		'mech': '5 satisfies Physics 7A',
+		'ch': 'One lower division H/SS',
+		'fr': 'One lower division H/SS',
+		'ger': 'One lower division H/SS',
+		'jpn': 'One lower division H/SS',
+		'lat': 'One lower division H/SS',
+		'sp_lang': 'One lower division H/SS',
+		'sp_lit': 'One lower division H/SS',
+	}
+];
 
 var reqs_ls = {
     'art_hist': '',
@@ -355,34 +467,6 @@ var reqs_ced = {
     'sp_lit': 'International Studies OR Arts & Literature',
 };
 
-//need to merge with reqs_eng 
-//Score of 5,6 or 7 = 5.3 units; If taken as part of diploma units capped at 20
-var ib_eng = {
-	'art':'One lower division Humanities/Social Science',
-	'bio':'Biology 1A/1AL and Biology 1B',
-	'chem':'Chemistry 1A/1AL',
-	'cs':'CompSci 61B, if student completes CS47B at UCB',
-	'eocn':'One lower division Humanities/Social Science',
-	'engA1':'Entry Level Writing & Reading & Comp "A"',
-	'engA2':'One lower division Humanities/Social Science',
-	'engB':'None',
-	'fr':'One lower division Humanities/Social Science',
-	'geo':'One lower division Humanities/Social Science',
-	'ger':'One lower division Humanities/Social Science',
-	'greek':'One lower division Humanities/Social Science',
-	'us':'One lower division Humanities/Social Science',
-	'eurp':'One lower division Humanities/Social Science',
-	'lat':'One lower division Humanities/Social Science',
-	'math':'Math 1A and Math 1B',
-	'music':'One lower division Humanities/Social Science',
-	'philo':'One lower division Humanities/Social Science',
-	'phys':'None', //No credits given
-	'port':'One lower division Humanities/Social Science',
-	'sp':'One lower division Humanities/Social Science',
-	'theater':'One lower division Humanities/Social Science'
-}
-
-
 // Dictionary of colleges and their corresponding requirements
 var college_dict = {'ls': reqs_ls, 'chem': reqs_chem, 'eng': reqs_eng, 'haas': reqs_haas, 'cnr': reqs_cnr, 'ced': reqs_ced};
 
@@ -406,6 +490,18 @@ var li_mid   = ' tabindex   = "-1" href = "#" class = "cat-element">'
 var li_mid_x = ' tabindex   = "-1" href = "#" class = "sub-element">'
 var li_end   = '</a></li>';
 
+// Handle changs in AP and IB
+$('.type').click(function() {
+	using_ap = parseInt($(this).attr('data-using-ap'));
+	$(this).removeClass('btn-default').addClass('btn-primary disabled');
+	$('.type').not(this).removeClass('btn-primary disabled').addClass('btn-default');
+	    initCategoryDropdown();
+    categoryElementClickHandler();
+    collegeChangeHandler();
+    scoreChangeHandler();
+    addToTable();
+});
+	 
 // Populates the subjects dropdown
 var load_sub = function() {
     if (category) {
@@ -457,7 +553,7 @@ var updateUnits = function() {
     var listed_length = listed.length;
     var count = 0;
     for (var i = 0; i < listed_length; i++) {
-        if (_.indexOf(subjects['eng'], listed[i]) >= 0) {
+        if (_.indexOf(subjects[using_ap]['eng'], listed[i]) >= 0) {
             eng = 8;
         } else if (listed[i] === 'ab' || listed[i] === 'bc') {
             calc += units[listed[i]];
@@ -490,7 +586,7 @@ var buildTable = function() {
     var listed_length = listed.length;
     for (var i = 0; i < listed_length; i++) {
         units_add = parseFloat(units[subject] / 1.5).toFixed(1);
-        table_add = '<tr id="' + listed[i] + 'x"><td>' + dict[listed[i]] + '</td>'
+        table_add = '<tr id="' + listed[i] + 'x"><td>' + dict[using_ap][listed[i]] + '</td>'
         + '<td>' + score + '</td>'
         + '<td>' + units_add + '</td>'
         + '<td>' + college_dict[college][listed[i]] + '</td>'
@@ -549,7 +645,7 @@ var addToTable = function() {
     $('#add').click(function() {
         if (subject && _.indexOf(listed, subject) < 0) {
             units_add = parseFloat(units[subject] / 1.5).toFixed(1);
-            table_add = '<tr id="' + subject + 'x"><td>' + dict[subject] + '</td>'
+            table_add = '<tr id="' + subject + 'x"><td>' + dict[using_ap][subject] + '</td>'
             + '<td>' + score + '</td>'
             + '<td>' + units_add + '</td>'
             + '<td>' + college_dict[college][subject] + '</td>'
@@ -582,23 +678,6 @@ var scoreChangeHandler = function() {
         score = parseInt($(this).text());
         $('#score').text(score);
     });
-}
-
-var populateCategoryDropdown = function() {
-    if(using_ap){
-		//do AP stuff
-	}else{
-		//Do IB stuff
-	}
-}
-
-var switchAPIB = function() {
-    $('.type').click(function() {
-		using_ap = parseInt($(this).attr('data-using-ap'));
-		$(this).removeClass('btn-default').addClass('btn-primary disabled');
-		$('.type').not(this).removeClass('btn-primary disabled').addClass('btn-default');
-	});
-    populateCategoryDropdown();
 }
 
 $(function() {
