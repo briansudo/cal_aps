@@ -185,3 +185,7 @@ h3 {
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
+.dropdown-menu>li>a {
+    outline: 0;
+}
