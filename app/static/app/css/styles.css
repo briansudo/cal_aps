@@ -130,14 +130,19 @@ h3 {
     border: 1px solid #50B8DF;
 }
 
-.btn-success {
+.btn-group>.btn:first-child {
+    outline: 0;
+}
+
+.btn-success, .btn-success:focus, .btn-success.focus {
     background: #EFC53F;
     border: 1px solid #DFA51F;
 }
 
-.btn-success:hover, .btn-success:active, .btn-success:focus, .btn-success.focus {
+.btn-success:hover {
     background: #DFA51F;
     border: 1px solid #DFA51F;
+    outline: 0;
 }
 
 #description {
