@@ -306,8 +306,8 @@ var using_ap = true; // If using IB, using_ap is False
 // CODE FOR LIST ELEMENT
 // var proper_li_ele = li_beg + SOME_ID + li_mid(_x) + dict[SOME_ID] + li_end;
 var li_beg   = '<li><a id   = ';
-var li_mid   = ' tabindex   = "-1" href = "#" class = "cat-element">'
-var li_mid_x = ' tabindex   = "-1" href = "#" class = "sub-element">'
+var li_mid   = ' tabindex   = "-1" href="javascript:void(0);" class = "cat-element">'
+var li_mid_x = ' tabindex   = "-1" href="javascript:void(0);" class = "sub-element">'
 var li_end   = '</a></li>';
 
 // Populates the subjects dropdown
@@ -317,7 +317,6 @@ var load_sub = function() {
         var sub_items = "";
         var subs      = subjects[category];
         var sub_len   = subjects[category].length;
-        console.log(subs);
         for (var i = 0; i < sub_len; i++) {
             if ($.inArray(subs[i], listed) < 0) {
                 sub_items += li_beg + subs[i] + li_mid_x + dict[subs[i]] + li_end;
@@ -326,7 +325,6 @@ var load_sub = function() {
         $('.sub-element').click(function() {
             subject = $(this).attr('id');
             $('#sub').text(dict[subject]);
-            console.log(subject + " clicked");
         });
         $("#sub-drop").html(sub_items);
         $('.sub-element').click(function() {
@@ -358,9 +356,8 @@ var updateUnits = function() {
     var eng  = 0;
     var calc = 0;
     var phys = 0;
-    var listed_length = listed.length;
     var count = 0;
-    for (var i = 0; i < listed_length; i++) {
+    for (var i = 0; i < listed.length; i++) {
         if (_.indexOf(subjects["eng"], listed[i]) >= 0) {
             eng = 8;
         } else if (listed[i] === 'ab' || listed[i] === 'bc') {
@@ -383,23 +380,14 @@ var updateUnits = function() {
     count += arts / 1.5 + eng / 1.5 + calc / 1.5 + phys / 1.5;
     count = parseFloat(count.toFixed(1));
     credits = count;
-    console.log(count);
 };
 
 // Using listed, the array of classes added, build the table with college specific reqs.
 // Used when the college is changed.
 var buildTable = function() {
-    console.log("Build table called");
-    $("#ap-table").html("");
-    var listed_length = listed.length;
-    for (var i = 0; i < listed_length; i++) {
-        units_add = parseFloat(units[subject] / 1.5).toFixed(1);
-        table_add = '<tr id="' + listed[i] + 'x"><td>' + dict[listed[i]] + '</td>'
-        + '<td>' + score + '</td>'
-        + '<td>' + units_add + '</td>'
-        + '<td>' + college_dict[college][listed[i]] + '</td>'
-        + '<td>' + '<span class="fa fa-times-circle remove" id="' + listed[i] + '"></span>' + '</td>';
-        $("#ap-table").html($("#ap-table").html() + table_add);
+    for (var i = 0; i < listed.length; i++) {
+        $("#" + listed[i] + "x > .units").html(parseFloat(units[listed[i]] / 1.5).toFixed(1));
+        $("#" + listed[i] + "x > .details").html(college_dict[college][listed[i]]);
     }
     addRemoveHandler();	
 };
@@ -407,11 +395,9 @@ var buildTable = function() {
 // Removes an item from the table and from listed
 var addRemoveHandler = function() {
     $('.remove').click(function() {
-        console.log("Remove called");
         var item = $(this).attr("id");
         $(this).closest('tr').remove();
         listed = _.without(listed, item);
-        console.log(item + " to be removed " + listed);
         update();
         load_sub();
     });
@@ -426,7 +412,6 @@ var initCategoryDropdown = function() {
     $("#cat-drop").html(cat_items);
     if (!category) {
         $("#sub-button").addClass("disabled");
-        console.log("Button disabled");
     }
 }
 
@@ -438,11 +423,9 @@ var categoryElementClickHandler = function() {
         if (category !== new_cat) {
             $("#sub").html('Select <span class="caret"></span>');
             subject = null;
-            console.log("Button disabled for new category");
         }
         category = new_cat;
         $('#cat').text(dict[category]);
-        console.log(category + " clicked");
         load_sub();
     });
 }
@@ -454,9 +437,9 @@ var addToTable = function() {
         if (subject && _.indexOf(listed, subject) < 0) {
             units_add = parseFloat(units[subject] / 1.5).toFixed(1);
             table_add = '<tr id="' + subject + 'x"><td>' + dict[subject] + '</td>'
-            + '<td>' + score + '</td>'
-            + '<td>' + units_add + '</td>'
-            + '<td>' + college_dict[college][subject] + '</td>'
+            + '<td class="score">' + score + '</td>'
+            + '<td class="units">' + units_add + '</td>'
+            + '<td class="details">' + college_dict[college][subject] + '</td>'
             + '<td>' + '<span class="fa fa-times-circle remove" id="' + subject + '"></span>' + '</td>';
 
             $("#ap-table").html($("#ap-table").html() + table_add);
@@ -465,7 +448,6 @@ var addToTable = function() {
             load_sub();
         }
         addRemoveHandler();
-        console.log("Add pushed " + subject);
     });
 }
 
@@ -474,7 +456,6 @@ var collegeChangeHandler = function() {
     $('.college-choice').click(function() {
         $('#college').text($(this).text());
         college = $(this).attr('id');
-        console.log("Changing college to " + college);
         buildTable();
         
     });
@@ -486,15 +467,6 @@ var scoreChangeHandler = function() {
         score = parseInt($(this).text());
         $('#score').text(score);
     });
-}
-
-var populateCategoryDropdown = function() {
-    // Fix Me
-}
-
-var switchAPIB = function() {
-    // Fix Me
-    populateCategoryDropdown();
 }
 
 $(function() {
