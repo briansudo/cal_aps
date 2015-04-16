@@ -12,7 +12,7 @@
         <meta name="author" content="Brian Su">
         <meta name="keywords" content="Cal, Cal AP Credits, calapcredits, UC Berkeley, UC, AP, APs, Advanced Placement">
 
-        <title>Cal APs</title>
+        <title>Cal AP Tool</title>
 
         {% bootstrap_css %}
         <link href="{% static "app/css/font-awesome.min.css" %}" rel="stylesheet">
@@ -20,111 +20,145 @@
 
     </head>
     <body>
-        <nav class="navbar-default" role="navigation">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-
-                <a class="navbar-brand" href="/">
-                    <span id="maintitle" class="color1">
-                        Cal
-                    </span>
-                    <span id="maintitle2" class="color2">
-                        APs
-                </span></a>
-            </div>
-        </div><!-- /.container-fluid -->
-        </nav>
-        <br>
-        <div class="container-fluid text-center">
-            <div class="btn-group dropdown">
-                <button data-toggle="dropdown" id="college-button" class="btn btn-primary dropdown-toggle"> <span id="college">Letters and Science <span class="caret"></span></span> </button>
-                <ul id="college-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 200px;">
-                    <li role="presentation"><a id="ls" class="college-choice" role="menuitem" tabindex="-1" href="#">Letters and Science</a></li>
-                    <li role="presentation"><a id="chem" class="college-choice" role="menuitem" tabindex="-1" href="#">Chemistry</a></li>
-                    <li role="presentation"><a id="eng" class="college-choice" role="menuitem" tabindex="-1" href="#">Engineering</a></li>
-                    <li role="presentation"><a id="haas" class="college-choice" role="menuitem" tabindex="-1" href="#">Haas</a></li>
-                    <li role="presentation"><a id="cnr" class="college-choice" role="menuitem" tabindex="-1" href="#">Natural Resources</a></li>
-                    <li role="presentation"><a id="ced" class="college-choice" role="menuitem" tabindex="-1" href="#">Environmental Design</a></li>
-                </ul>
-            </div>
-            <div class="btn-group dropdown">
-                <button data-toggle="dropdown" class=" btn btn-primary dropdown-toggle" id="cat-button"> 
-                <!-- Link or button to toggle dropdown --> 
-                <span id="cat">Category <span class="caret"></span></span> </button>
-                <ul id="cat-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="max-width: 200px;">
-                    <li><a id="arts" tabindex="-1" href="#" class="cat-element">Arts</a></li>
-                    <li><a id="eng" tabindex="-1" href="#" class="cat-element">English</a></li>
-                    <li><a id="hss" tabindex="-1" href="#" class="cat-element">History &amp; Social Sciences</a></li>
-                    <li><a id="mcs" tabindex="-1" href="#" class="cat-element">Math &amp; Computer Science</a></li>
-                    <li><a id="sci" tabindex="-1" href="#" class="cat-element">Sciences</a></li>
-                    <li><a id="langs" tabindex="-1" href="#" class="cat-element">Languages</a></li>
-                </ul>
-            </div>
-            <div class="btn-group dropdown">
-                <button data-toggle="dropdown" id="sub-button" class="btn btn-primary pull-center disabled dropdown-toggle"> 
-                <!-- Link or button to toggle dropdown --> 
-                <span id="sub">Select <span class="caret"></span></span> </button>
-                <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 200px;">
-                </ul>
-            </div>
-            <div class="btn-group dropdown">
-                <button data-toggle="dropdown" id="score-button" class="btn btn-primary dropdown-toggle"> 
-                <!-- Link or button to toggle dropdown --> 
-                
-                <span id="score">5</span> </button>
-                <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="min-width: 0px;">
-                    <li role="presentation"> <a id="five" class="score-num" role="menuitem" tabindex="-1" href="#">5</a> </li>
-                    <li role="presentation"><a id="four" class="score-num" role="menuitem" tabindex="-1" href="#">4</a></li>
-                    <li role="presentation"><a id="three" class="score-num" role="menuitem" tabindex="-1" href="#">3</a></li>
-                </ul>
-            </div>
-            <div class="btn-group">
-                <button id="add" class="btn btn-success">+</button>
-            </div>
+        <div id="overlay">
         </div>
-        <br>
+        <div id="page">
+            <nav class="navbar-default" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
 
+                    <a class="navbar-brand" href="/">
+                        <span id="maintitle" class="color1">
+                            Cal
+                        </span>
+                        <span id="maintitle2" class="color2">
+                            AP Tool
+                    </span></a>
+                </div>
+            </div><!-- /.container-fluid -->
+            </nav>
+            <div id="description" class="container">
+                <div class="row">
+                    <p>
+                    All scores 3 or higher are given credit. For more information on credits earned from APs, click <a href="http://admission.universityofcalifornia.edu/counselors/exam-credit/ap-credits/index.html" target="_blank">here.</a> For college specific information on what requirements APs satisfy, click the following:
+                    <a href="http://chemistry.berkeley.edu/student_info/undergrad_info/exams.php" target="_blank">Chemistry</a>, 
+                    <a href="http://admission.universityofcalifornia.edu/counselors/exam-credit/ap-credits/berkeley/index.html" target="_blank">L&S</a>, 
+                    <a href="http://coe.berkeley.edu/students/guide/exams-credit" target="_blank">Engineering</a>, 
+                    <a href="{% static "app/files/cnr_aps.pdf" %}" target="_blank">CNR (pdf)</a>, 
+                    <a href="{% static "app/files/ced_aps.pdf" %}">Env. Design (pdf)</a>, and 
+                    <a href="http://www.haas.berkeley.edu/Undergrad/aplist.html" target="_blank">Haas</a>.
+                    </p>
+                    <div id="options">
+                        <table>
+                            <tr>
+                                <td class="right-col">
+                                    College
+                                </td>
+                                <td>
+                                    <div class="btn-group dropdown">
+                                        <button data-toggle="dropdown" id="college-button" class="btn btn-primary dropdown-toggle"> <span id="college">Letters and Science <span class="caret"></span></span> </button>
+                                        <ul id="college-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                            <li role="presentation"><a href="javascript:void(0);" id="ls" class="college-choice" role="menuitem" tabindex="-1">Letters and Science</a></li>
+                                            <li role="presentation"><a href="javascript:void(0);" id="chem" class="college-choice" role="menuitem" tabindex="-1">Chemistry</a></li>
+                                            <li role="presentation"><a href="javascript:void(0);" id="eng" class="college-choice" role="menuitem" tabindex="-1">Engineering</a></li>
+                                            <li role="presentation"><a href="javascript:void(0);" id="haas" class="college-choice" role="menuitem" tabindex="-1">Haas</a></li>
+                                            <li role="presentation"><a href="javascript:void(0);" id="cnr" class="college-choice" role="menuitem" tabindex="-1">Natural Resources</a></li>
+                                            <li role="presentation"><a href="javascript:void(0);" id="ced" class="college-choice" role="menuitem" tabindex="-1">Environmental Design</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right-col">
+                                    Subject
+                                </td>
+                                <td>
+                                    <div class="btn-group dropdown">
+                                        <button data-toggle="dropdown" class=" btn btn-primary dropdown-toggle" id="cat-button"> 
+                                        <!-- Link or button to toggle dropdown --> 
+                                        <span id="cat">Category <span class="caret"></span></span> </button>
+                                        <ul id="cat-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel" style="max-width: 200px;">
+                                            <li><a href="javascript:void(0);" id="arts" tabindex="-1" class="cat-element">Arts</a></li>
+                                            <li><a href="javascript:void(0);" id="eng" tabindex="-1" class="cat-element">English</a></li>
+                                            <li><a href="javascript:void(0);" id="hss" tabindex="-1" class="cat-element">History &amp; Social Sciences</a></li>
+                                            <li><a href="javascript:void(0);" id="mcs" tabindex="-1" class="cat-element">Math &amp; Computer Science</a></li>
+                                            <li><a href="javascript:void(0);" id="sci" tabindex="-1" class="cat-element">Sciences</a></li>
+                                            <li><a href="javascript:void(0);" id="langs" tabindex="-1" class="cat-element">Languages</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right-col">
+                                    Course
+                                </td>
+                                <td>
+                                    <div class="btn-group dropdown">
+                                        <button data-toggle="dropdown" id="sub-button" class="btn btn-primary pull-center disabled dropdown-toggle"> 
+                                        <!-- Link or button to toggle dropdown --> 
+                                        <span id="sub">Select <span class="caret"></span></span> </button>
+                                        <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right-col">
+                                    Score
+                                </td>
+                                <td>
+                                    <div class="btn-group dropdown">
+                                        <button data-toggle="dropdown" id="score-button" class="btn btn-primary dropdown-toggle"> 
+                                        <!-- Link or button to toggle dropdown --> 
+                                        
+                                        <span id="score">5</span> </button>
+                                        <ul id="sub-drop" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                            <li role="presentation"><a href="javascript:void(0);" id="five" class="score-num" role="menuitem" tabindex="-1">5</a> </li>
+                                            <li role="presentation"><a href="javascript:void(0);" id="four" class="score-num" role="menuitem" tabindex="-1">4</a></li>
+                                            <li role="presentation"><a href="javascript:void(0);" id="three" class="score-num" role="menuitem" tabindex="-1">3</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="right-col">
+                                    Add Class
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button id="add" class="btn btn-success">+</button>
+                                    </div>
+                                </td>
+                        </table>
+                    </div>
 
-        <div class="container col-md-offset-3 col-md-6 text-center">
-            <div class="row">
-                <p>
-                <i>All scores 3 or higher are given credit. For more information on credits earned from APs, click <a href="http://admission.universityofcalifornia.edu/counselors/exam-credit/ap-credits/index.html" target="_blank">here.</a> For college specific information on what requirements APs satisfy, click the following: 
-                <a href="http://chemistry.berkeley.edu/student_info/undergrad_info/exams.php" target="_blank">Chemistry</a>, 
-                <a href="http://admission.universityofcalifornia.edu/counselors/exam-credit/ap-credits/berkeley/index.html" target="_blank">L&S</a>, 
-                <a href="http://coe.berkeley.edu/students/guide/exams-credit" target="_blank">Engineering</a>, 
-                <a href="{% static "app/files/cnr_aps.pdf" %}" target="_blank">CNR (pdf)</a>, 
-                <a href="{% static "app/files/ced_aps.pdf" %}">Env. Design (pdf)</a>, and 
-                <a href="http://www.haas.berkeley.edu/Undergrad/aplist.html" target="_blank">Haas</a>.</i>
-                </p>
+                </div>
             </div>
-        </div>
-        <div class="container-fluid col-md-6 col-md-offset-3 text-center">
-            <h4>Units: <i><span id="units">0</span></i> Standing: <i><span id="standing">Freshman</span></i></h4>
-        </div>
-        <div class="container-fluid text-center">
-            <table class="table">
-                <thead >
-                    <th style="text-align:center">AP</th>
-                    <th style="text-align:center">Score</th>
-                    <th style="text-align:center">Units</th>
-                    <th style="text-align:center">Requirements Satisfied</th>
-                    <th style="text-align:center">Remove</th>
-                </thead>
-                <tbody id="ap-table">
+            <div id="status" class="container col-md-6 col-md-offset-3 text-center">
+                <h4><span id="units">0</span> Units - <span id="standing">Freshman</span></h4>
+            </div>
+            <div class="container text-center">
+                <table class="table table-bordered">
+                    <thead >
+                        <th style="text-align:center">AP</th>
+                        <th style="text-align:center">Score</th>
+                        <th style="text-align:center">Units</th>
+                        <th style="text-align:center">Requirements Satisfied</th>
+                        <th style="text-align:center">Remove</th>
+                    </thead>
+                    <tbody id="ap-table">
 
-                </tbody>
+                    </tbody>
 
-            </table>
+                </table>
 
+            </div>
+            <div id="footer" class="container">
+                <p class="text-muted">UI by <a href="http://smartfuse.net">Lucas Yan</a> | Developed by <a href="http://www.brianysu.com">Brian Su</a> and Gurpeet Atwal | View <a href="http://www.github.com/briansudev/cal_aps">source.</a></p>
+            </div>
         </div>
     </div>
-    <div id="footer">
-        <div class="container">
-            <p class="text-muted">By <a href="http://www.brianysu.com">Brian Su</a> and Gurpeet Atwal. View <a href="http://www.github.com/briansudev/cal_aps">source code.</a></p>
-        </div>
-    </div>
-
 
 </body>
 
